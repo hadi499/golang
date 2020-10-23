@@ -1,0 +1,31 @@
+download go
+tar xvf go1.10.3.linux-amd64.tar.gz
+
+sudo chown -R root:root ./go
+sudo mv go /home/hadi
+
+
+
+sudo nano ~/.bashrc
+
+export GOROOT=$HOME/go
+export GOPATH=$HOME/go-work
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+source .bashrc
+
+mkdir -p go-work/src/github.com/hadi/hello
+gedit go-work/src/github.com/hadi/hello/hello.go
+
+script go
+
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Printf("hello, world\n")
+}
+
+go install github.com/hadi/hello
+hello
